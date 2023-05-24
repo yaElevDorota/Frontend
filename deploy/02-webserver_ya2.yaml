@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserverfronted
+  namespace: ya2
+  labels:
+    app: webserverfronted
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webserverfronted
+  template:
+    metadata:
+      labels:
+        app: webserverfronted
+    spec:
+      containers:
+        - name: webserverfronted
+          image: git.systementor.se/yacloud/dorota2023fronted
+          ports:
+            - containerPort: 3000
+          env:
+            - name: RUNENVIRONMENT
+              value: Production
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: ya2
+  name: webserverfronted-service
+  annotations:
+    service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
+  labels:
+    app: webserverfronted
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: webserverfronted
+  sessionAffinity: None
