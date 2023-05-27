@@ -21,8 +21,8 @@ export const Stats = () => {
             <div>
             <h1 className="heading"> <span>Statistik</span>  </h1>
         
-            <a className="ctabutton" href="#">Totalt antal spel: {antal}</a>
-            <a className="ctabutton" href="#">Totalt antal vunna: {vunna}</a>
+            <a className="ctabutton2" href="#">Totalt antal spel: {antal}</a>
+            <a className="ctabutton2" href="#">Totalt antal vunna: {vunna}</a>
             </div>
         </section>
         </>

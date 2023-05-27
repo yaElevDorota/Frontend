@@ -5,6 +5,7 @@ export const Game = () => {
     const [selected, setSelected] = useState('');
     const [computerSelection, setComputerSelection] = useState(null)
     const [winner, setWinner] = useState(null)
+    const [message, setMessage] = useState(null)
 
     const PlayAgain = () =>{
         setWinner(null)
@@ -24,6 +25,7 @@ export const Game = () => {
         console.log(data.computerSelection)
         setComputerSelection(data.computerSelection)
         setWinner(data.winner)
+        setMessage(data.message)
 }
 
   return (
@@ -40,18 +42,18 @@ export const Game = () => {
         }
         { activeAction == "Sending" &&
             <div>
-            <h1 >Your choice:</h1>
-            <a className="ctabutton" href="#">{selected}</a>
-            <h1>Computer selected</h1>
-            <br/>
-            <h1>
+            <h2 >Your choice:</h2>
+            <a className="ctabutton2" href="#">{selected}</a>
+            <h2>Computer selected</h2>
+            
+            <h2>
             {computerSelection &&                 
-            <a className="ctabutton" href="#">{computerSelection}</a>
+            <a className="ctabutton2" href="#">{computerSelection}</a>
             }
-            </h1>
+            </h2>
             {winner &&                 
             <>
-            <h1>RESULT: {winner} </h1>
+            <h2>The winner is:  {winner}</h2>
             <a onClick={()=>PlayAgain()} className="ctabutton" href="#">Play again</a>
             </>
             }

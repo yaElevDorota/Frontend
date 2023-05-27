@@ -135,8 +135,10 @@ section {
 }
 
 footer {
-    height: 60px;
-    background-color: var(--secondary-color);
+    background: #303336;
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
 
 
@@ -169,6 +171,13 @@ h2 {
     background-color: var(--cta-color);
     display: inline-block;
     text-shadow: var(--text-shadow);
+}
+
+.ctabutton2 {
+    margin: 10px;
+    font-size: 24x;
+    color: #eee;
+    display: inline-block;
 }
 
 
